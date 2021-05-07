@@ -6,16 +6,12 @@ namespace test
 {
     class Program
     {
-        public static Plateforme plat = new Plateforme();
+        //Créer un objet static de type Jeu
+        
         static void Main(string[] args)
         {
-            Thread leTread = new Thread(new ThreadStart(CommunicationClient));
-            leTread.Start();
+            // il faut créer le déroulement du jeu
         }
-        public static void CommunicationClient()
-        {
-            Client l = new Client("127.0.0.1", 2021, "Thais");
-            l.Run();
-        }
+       
     }
 }

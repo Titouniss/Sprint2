@@ -67,7 +67,7 @@ namespace LoupGarou
             */
             foreach (KeyValuePair<int, Joueur> element in laListe)
             {
-                etat = element.Value.estActif;
+                etat = element.Value.estActif; // C'est l'inverse element.Value.estActif = etat;
             }
         }
         public void attribuerDesRoles()
@@ -122,7 +122,7 @@ namespace LoupGarou
             /* n <- _nbreLoup-1
             * POUR i allant de 0 à _nbreLoup FAIRE
             * __Aleatoire <- _Random.Next(0, n)
-            * lesJoueurs[temp.ElementAt(_Aleatoire).Key].leRole <- lesRoles[0]
+            * lesJoueurs[temp.ElementAt(_Aleatoire).Key].leRole <- lesRoles[1]
             * Supprimer l'objet avec la clé temp.ElementAt(_Aleatoire).Key de temp
             * n <- n-1
             * FINPOUR
@@ -132,7 +132,7 @@ namespace LoupGarou
             for (int i = 0; i < _nbreLoup; i++)
             {
                 _Aleatoire = _Random.Next(0, n);
-                lesJoueurs[temp.ElementAt(_Aleatoire).Key].leRole = lesRoles[0];
+                lesJoueurs[temp.ElementAt(_Aleatoire).Key].leRole = lesRoles[0]; // l'index est à 1 et non 0
                 temp.Remove(temp.ElementAt(_Aleatoire).Key);
                 n = n - 1;
             }
@@ -296,10 +296,11 @@ namespace LoupGarou
                 if (result < lesJoueursEnBallotage.ElementAt(i).Value.leNbreVote)
                 {
                     result = lesJoueursEnBallotage.ElementAt(i).Value.leNbreVote;
-                }
+                
                 if (i > 0)
                 {
                     lesJoueursEnBallotage.Remove(lesJoueursEnBallotage.ElementAt(i - 1).Key);
+                }
                 }
                 else if (result > lesJoueursEnBallotage.ElementAt(i).Value.leNbreVote)
                 {

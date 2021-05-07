@@ -38,8 +38,8 @@ namespace LoupGarou
         {
             while (true)
             {
-                nbreClient++;
-                Socket leSocketAcep = leSocket.Accept();
+                
+                Socket leSocketAcep = leSocket.Accept();                
                 laCom = new ClientCommunication(leSocketAcep, nbreClient, this);
                 Thread _thread = new Thread(Communication);
                 _thread.Start(laCom);
@@ -47,12 +47,13 @@ namespace LoupGarou
         }
         public void Communication(object o)
         {
-
+nbreClient++;
             laCom = o as ClientCommunication;
             NetworkStream _Network = new NetworkStream(laCom.leSocket);
             leMessageObtenu = new StreamReader(_Network);
             leMessageAEnvoyer = new StreamWriter(_Network);
             string ipport = laCom.leSocket.RemoteEndPoint.ToString();
+            //Il faut créer un nouveau client ou joueur... et l'ajouter à la collection
             while (true)
             {
                 setText("Client n. :" + nbreClient + " avec l'adresse " + ipport);

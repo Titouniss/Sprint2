@@ -4,9 +4,9 @@
     {
         public string leDescriptif;
         public string leLibelle;
-        public Role(string leNom)
+        public Role(string leNom, string Descrip)
         {
-
+// Maintenant il faut renseigner le constructeur
         }
     }
 }
